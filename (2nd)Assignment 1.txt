@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    // Allocate memory for an integer, a float, a char, and a double
+    int *int_ptr = (int *)malloc(sizeof(int));
+    float *float_ptr = (float *)malloc(sizeof(float));
+    char *char_ptr = (char *)malloc(sizeof(char));
+    double *double_ptr = (double *)malloc(sizeof(double));
+
+    // Check if memory allocation was successful
+    if (int_ptr == NULL || float_ptr == NULL || char_ptr == NULL || double_ptr == NULL) {
+        printf("Memory allocation failed. Exiting...\n");
+        return 1; // Exit with failure status
+    }
+
+    // Store values in the dynamically allocated memory
+    *int_ptr = 10;
+    *float_ptr = 3.5f;
+    *char_ptr = 'A';
+    *double_ptr = 5.7;
+
+    // Double the values stored
+    *int_ptr *= 2;
+    *float_ptr *= 2;
+    *double_ptr *= 2;
+
+    // Print the doubled values
+    printf("Doubled values:\n");
+    printf("Integer: %d\n", *int_ptr);
+    printf("Float: %.2f\n", *float_ptr);
+    printf("Char: %c\n", *char_ptr);
+    printf("Double: %.2lf\n", *double_ptr);
+
+    // Free dynamically allocated memory
+    free(int_ptr);
+    free(float_ptr);
+    free(char_ptr);
+    free(double_ptr);
+
+    return 0;
+}
